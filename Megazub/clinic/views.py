@@ -1,11 +1,44 @@
 from rest_framework import viewsets
-from .serializers import DoctorsListSerializer, DoctorsSliderSerializer
-from .models import Doctors, DoctorsSlider
+from .serializers import *
+from .models import Doctors, DoctorsSlider, News, Reviews
+
+
+class CarouselItemViewSets(viewsets.ModelViewSet):
+    queryset = CarouselItem.objects.all()
+    serializer_class = CarouselItemSerializer
+
+
+class CategoryViewSets(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
+
+class ServiceViewSets(viewsets.ModelViewSet):
+    queryset = Services.objects.all()
+    serializer_class = ServiceSerializer
+
+
+"""class ServicePhotosViewSets(viewsets.ModelViewSet):
+    queryset = ServicePhotos.objects.all()
+    serializer_class = ServicePhotosSerializer
+"""
+
 
 class DoctorsListViewSets(viewsets.ModelViewSet):
     queryset = Doctors.objects.all()
     serializer_class = DoctorsListSerializer
 
+
 class DoctorsSliderViewSets(viewsets.ModelViewSet):
     queryset = DoctorsSlider.objects.all()
     serializer_class = DoctorsSliderSerializer
+
+
+class NewsViewSets(viewsets.ModelViewSet):
+    queryset = News.objects.all()
+    serializer_class = NewsSerializer
+
+
+class ReviewsViewSets(viewsets.ModelViewSet):
+    queryset = Reviews.objects.all()
+    serializer_class = ReviewsSerializer
