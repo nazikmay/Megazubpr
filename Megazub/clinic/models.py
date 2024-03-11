@@ -11,4 +11,12 @@ class Doctors(models.Model):
     def __str__(self):
         return self.name
 
+class DoctorsSlider(models.Model):
+    """Слайдер, "Карусель"""
+    title = models.CharField("Название", max_length=100)
+    doctors = models.ForeignKey(Doctors, blank=True, null=True, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
+
 
