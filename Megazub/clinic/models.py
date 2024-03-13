@@ -1,4 +1,5 @@
 from django.db import models
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 class CarouselItem(models.Model):
@@ -19,6 +20,7 @@ class Category(models.Model):
 
 
 class Services(models.Model):
+    """Услуги"""
     title = models.CharField(max_length=100)
     description = models.TextField()
     price = models.IntegerField(null=True, blank=True)
@@ -36,13 +38,21 @@ class Services(models.Model):
     image = models.ImageField(upload_to='images/')"""
 
 
+class SpecialityDoctors(models.Model):
+    """Специальность доктора"""
+    title = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title
 
 class Doctors(models.Model):
     """Наши доктора"""
     name = models.CharField("Имя",max_length=100)
+    speciality = models.ManyToManyField(SpecialityDoctors, on_delete=models.CASCADE)
     description = models.TextField("Специализация")
+    education = models.TextField()
     image = models.ImageField("Фото", upload_to='doctors/')
-    year = models.PositiveSmallIntegerField("Опыт работы", default=0)
+    year = models.PositiveSmallIntegerField(default=0)
 
 
     def __str__(self):
@@ -63,8 +73,12 @@ class News(models.Model):
     descriptions = models.TextField()
     created_date = models.DateField(auto_now_add=True)
 
+    def __str__(self):
+        return self.title
+
 
 class Reviews(models.Model):
+    """Отзывы"""
     author = models.CharField(max_length=100)
     text = models.TextField()
     doctors = models.ForeignKey(Doctors, on_delete=models.CASCADE)
@@ -74,5 +88,50 @@ class Reviews(models.Model):
 
     def __str__(self):
         return f"Review by {self.author} for {self.services} by {self.doctors}"
+
+
+class Questions(models.Model):
+    """Остались вопросы? Мы ответим!"""
+    name = models.CharField(max_length=100)
+    phone_number = models.PositiveIntegerField(max_length=15)
+
+    def __str__(self):
+        return self.name
+
+
+class Vacancy(models.Model):
+    """Вакансии"""
+    title = models.CharField(max_length=150)
+    descriptions = models.TextField()
+    salary = models.PositiveSmallIntegerField(default=0)
+
+    def __str__(self):
+        return f"Review by {self.title} - {self.salary} "
+
+
+class AppVacancies(models.Model):
+    """Заявка на вакансию"""
+    name = models.CharField(max_length=50)
+    phone = models.PositiveIntegerField(max_length=15)
+    position = models.ForeignKey(Vacancy, on_delete=models.CASCADE)
+    cv = models.FileField(upload_to='files/')
+
+    def __str__(self):
+        return self.name
+
+
+class Works(models.Model):
+    """Примеры работ"""
+    title = models.CharField(max_length=50)
+    descriptions = models.CharField(max_length=256)
+    services = models.ForeignKey(Services, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='works/')
+    doctor = models.ForeignKey(Doctors, on_delete=models.CASCADE)
+    time_treatment = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return self.title
+
+
 
 

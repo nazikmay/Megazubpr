@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 from .serializers import *
-from .models import Doctors, DoctorsSlider, News, Reviews
+from .models import *
 
 
 class CarouselItemViewSets(viewsets.ModelViewSet):
@@ -42,3 +42,22 @@ class NewsViewSets(viewsets.ModelViewSet):
 class ReviewsViewSets(viewsets.ModelViewSet):
     queryset = Reviews.objects.all()
     serializer_class = ReviewsSerializer
+
+
+class QuestionsViewSets(viewsets.ModelViewSet):
+    queryset = Questions.objects.all()
+    serializer_class = QuestionsSerializer
+
+
+class VacancyViewSets(viewsets.ModelViewSet):
+    queryset = Vacancy.objects.all()
+    serializer_class = VacancySerializer
+
+class AppVacanciesViewSets(viewsets.ModelViewSet):
+    queryset = AppVacancies.objects.all()
+    serializer_class = AppVacanciesSerializer
+
+
+class WorksViewSets(viewsets.ModelViewSet):
+    queryset = Works.objects.all()
+    serializer_class = WorksSerializer
