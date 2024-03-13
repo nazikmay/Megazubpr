@@ -42,4 +42,20 @@ urlpatterns = [
     path('reviews/<int:pk>/', ReviewsViewSets.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}),
          name='review_detail'),
 
+    path('questions/', ReviewsViewSets.as_view({'get': 'list', 'post': 'create'}), name='questions_list'),
+    path('questions/<int:pk>/', ReviewsViewSets.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}),
+         name='questions_detail'),
+
+    path('vacancy/', ReviewsViewSets.as_view({'get': 'list', 'post': 'create'}), name='vacancies_list'),
+    path('vacancy/<int:pk>/', ReviewsViewSets.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}),
+         name='vacancies_detail'),
+
+    path('appvacancies/', ReviewsViewSets.as_view({'get': 'list', 'post': 'create'}), name='appvacancies_list'),
+    path('appvacancies/<int:pk>/', ReviewsViewSets.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}),
+         name='appvacancies_detail'),
+
+    path('works/', ReviewsViewSets.as_view({'get': 'list', 'post': 'create'}), name='works_list'),
+    path('works/<int:pk>/', ReviewsViewSets.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}),
+         name='works_detail'),
+
 ]

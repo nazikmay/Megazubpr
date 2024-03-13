@@ -52,3 +52,28 @@ class ReviewsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Reviews
         fields = '__all__'
+
+
+class QuestionsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Questions
+        fields = '__all__'
+
+
+class VacancySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Vacancy
+        fields = '__all__'
+
+
+class AppVacanciesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AppVacancies
+        fields = '__all__'
+
+
+class WorksSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Works
+        fields = '__all__'
+
