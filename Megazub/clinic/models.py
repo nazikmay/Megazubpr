@@ -47,10 +47,11 @@ class SpecialityDoctors(models.Model):
 
 class Doctors(models.Model):
     """Наши доктора"""
-    name = models.CharField("Имя",max_length=100)
-    speciality = models.ManyToManyField(SpecialityDoctors, on_delete=models.CASCADE)
-    description = models.TextField("Специализация")
+    name = models.CharField("Имя", max_length=100)
+    speciality = models.ManyToManyField(SpecialityDoctors)
+    description = models.TextField()
     education = models.TextField()
+    certificates = models.FileField(upload_to='files/', blank=True,null=True)
     image = models.ImageField("Фото", upload_to='doctors/')
     year = models.PositiveSmallIntegerField(default=0)
 
@@ -93,7 +94,7 @@ class Reviews(models.Model):
 class Questions(models.Model):
     """Остались вопросы? Мы ответим!"""
     name = models.CharField(max_length=100)
-    phone_number = models.PositiveIntegerField(max_length=15)
+    phone_number = models.PositiveIntegerField()
 
     def __str__(self):
         return self.name
@@ -112,7 +113,7 @@ class Vacancy(models.Model):
 class AppVacancies(models.Model):
     """Заявка на вакансию"""
     name = models.CharField(max_length=50)
-    phone = models.PositiveIntegerField(max_length=15)
+    phone = models.PositiveIntegerField()
     position = models.ForeignKey(Vacancy, on_delete=models.CASCADE)
     cv = models.FileField(upload_to='files/')
 
