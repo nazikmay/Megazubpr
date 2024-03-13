@@ -62,4 +62,6 @@ urlpatterns = [
     path('specialitydoctors/<int:pk>/', ReviewsViewSets.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}),
          name='specialitydoctors_detail'),
 
+
+
 ]

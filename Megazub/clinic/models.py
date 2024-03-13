@@ -134,5 +134,26 @@ class Works(models.Model):
         return self.title
 
 
+"""class ModelEquipment(models.Model):
+    Используем материалы  
+    title = models.CharField(max_length=50)
+    descriptions = models.TextField()
+
+    def __str__(self):
+        return self.title"""
+
+
+"""class Equipment(models.Model):
+    #Оборудование
+    title = models.CharField(max_length=100)
+    descriptions = models.TextField()
+    image = models.ImageField(upload_to='equipment_foto')
+    modelequipment = models.ForeignKey(ModelEquipment, on_delete=models.CASCADE, blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+"""
+
+
 
 

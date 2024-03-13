@@ -83,4 +83,15 @@ class SpecialityDoctorsSerializer(serializers.ModelSerializer):
         model = SpecialityDoctors
         fields = '__all__'
 
+"""
+class ModelEquipmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ModelEquipment
+        fields = '__all__'
 
+
+class EquipmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Equipment
+        fields = '__all__'
+"""

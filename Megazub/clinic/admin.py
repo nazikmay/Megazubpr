@@ -14,3 +14,6 @@ admin.site.register(Vacancy)
 admin.site.register(AppVacancies)
 admin.site.register(Works)
 admin.site.register(SpecialityDoctors)
+"""admin.site.register(ModelEquipment)
+admin.site.register(Equipment)
+"""

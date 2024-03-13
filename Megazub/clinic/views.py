@@ -64,5 +64,17 @@ class WorksViewSets(viewsets.ModelViewSet):
 
 
 class SpecialityDoctorsViewSets(viewsets.ModelViewSet):
-    queryset =SpecialityDoctors.objects.all()
+    queryset = SpecialityDoctors.objects.all()
     serializer_class = SpecialityDoctorsSerializer
+
+
+"""class ModelEquipmentViewSets(viewsets.ModelViewSet):
+    queryset = ModelEquipment.objects.all()
+    serializer_class = ModelEquipmentSerializer
+
+
+class EquipmentViewSets(viewsets.ModelViewSet):
+    queryset = Equipment.objects.all()
+    serializer_class = EquipmentSerializer
+"""
+
