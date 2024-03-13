@@ -77,3 +77,10 @@ class WorksSerializer(serializers.ModelSerializer):
         model = Works
         fields = '__all__'
 
+
+class SpecialityDoctorsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SpecialityDoctors
+        fields = '__all__'
+
+

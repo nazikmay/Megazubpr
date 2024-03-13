@@ -58,4 +58,8 @@ urlpatterns = [
     path('works/<int:pk>/', ReviewsViewSets.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}),
          name='works_detail'),
 
+    path('specialitydoctors/', ReviewsViewSets.as_view({'get': 'list', 'post': 'create'}), name='specialitydoctors_list'),
+    path('specialitydoctors/<int:pk>/', ReviewsViewSets.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}),
+         name='specialitydoctors_detail'),
+
 ]

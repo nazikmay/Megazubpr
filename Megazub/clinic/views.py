@@ -61,3 +61,8 @@ class AppVacanciesViewSets(viewsets.ModelViewSet):
 class WorksViewSets(viewsets.ModelViewSet):
     queryset = Works.objects.all()
     serializer_class = WorksSerializer
+
+
+class SpecialityDoctorsViewSets(viewsets.ModelViewSet):
+    queryset =SpecialityDoctors.objects.all()
+    serializer_class = SpecialityDoctorsSerializer
