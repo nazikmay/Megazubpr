@@ -1,6 +1,6 @@
-from rest_framework import viewsets
-from .serializers import *
+from rest_framework import viewsets, permissions
 from .models import *
+from .serializers import *
 
 
 class CarouselItemViewSets(viewsets.ModelViewSet):
@@ -13,20 +13,34 @@ class CategoryViewSets(viewsets.ModelViewSet):
     serializer_class = CategorySerializer
 
 
+class CategoryServiceViewSets(viewsets.ModelViewSet):
+    queryset = CategoryService.objects.all()
+    serializer_class = CategoryServiceSerializer
+
+
 class ServiceViewSets(viewsets.ModelViewSet):
     queryset = Services.objects.all()
     serializer_class = ServiceSerializer
 
 
-"""class ServicePhotosViewSets(viewsets.ModelViewSet):
+class ActionViewSets(viewsets.ModelViewSet):
+    queryset = Action.objects.all()
+    serializer_class = ActionSerializer
+
+
+class ServicePhotosViewSets(viewsets.ModelViewSet):
     queryset = ServicePhotos.objects.all()
     serializer_class = ServicePhotosSerializer
-"""
 
 
-class DoctorsListViewSets(viewsets.ModelViewSet):
+class SpecialityDoctorsViewSets(viewsets.ModelViewSet):
+    queryset = SpecialityDoctors.objects.all()
+    serializer_class = SpecialityDoctorsSerializer
+
+
+class DoctorsViewSets(viewsets.ModelViewSet):
     queryset = Doctors.objects.all()
-    serializer_class = DoctorsListSerializer
+    serializer_class = DoctorsSerializer
 
 
 class DoctorsSliderViewSets(viewsets.ModelViewSet):
@@ -44,6 +58,11 @@ class ReviewsViewSets(viewsets.ModelViewSet):
     serializer_class = ReviewsSerializer
 
 
+class WorkExampleViewSets(viewsets.ModelViewSet):
+    queryset = WorkExample.objects.all()
+    serializer_class = WorkExampleSerializer
+
+
 class QuestionsViewSets(viewsets.ModelViewSet):
     queryset = Questions.objects.all()
     serializer_class = QuestionsSerializer
@@ -53,28 +72,50 @@ class VacancyViewSets(viewsets.ModelViewSet):
     queryset = Vacancy.objects.all()
     serializer_class = VacancySerializer
 
+
 class AppVacanciesViewSets(viewsets.ModelViewSet):
     queryset = AppVacancies.objects.all()
     serializer_class = AppVacanciesSerializer
 
 
-class WorksViewSets(viewsets.ModelViewSet):
-    queryset = Works.objects.all()
-    serializer_class = WorksSerializer
+class IndependentRatingsViewSets(viewsets.ModelViewSet):
+    queryset = IndependentRatings.objects.all()
+    serializer_class = IndependentRatingsSerializer
 
 
-class SpecialityDoctorsViewSets(viewsets.ModelViewSet):
-    queryset = SpecialityDoctors.objects.all()
-    serializer_class = SpecialityDoctorsSerializer
+
+class MaterialsClinicViewSets(viewsets.ModelViewSet):
+    queryset = MaterialsClinic.objects.all()
+    serializer_class = MaterialsClinicSerializer
 
 
-"""class ModelEquipmentViewSets(viewsets.ModelViewSet):
-    queryset = ModelEquipment.objects.all()
-    serializer_class = ModelEquipmentSerializer
+class ClinicViewSets(viewsets.ModelViewSet):
+    queryset = Clinic.objects.all()
+    serializer_class = ClinicSerializer
 
 
-class EquipmentViewSets(viewsets.ModelViewSet):
-    queryset = Equipment.objects.all()
-    serializer_class = EquipmentSerializer
-"""
+class CertificatesViewSets(viewsets.ModelViewSet):
+    queryset = Certificates.objects.all()
+    serializer_class = CertificatesSerializer
+
+
+class RequisitesViewSets(viewsets.ModelViewSet):
+    queryset = Requisites.objects.all()
+    serializer_class = RequisitesSerializer
+
+
+class UsefulInfoViewSets(viewsets.ModelViewSet):
+    queryset = UsefulInfo.objects.all()
+    serializer_class = UsefulInfoSerializer
+
+
+class ImageEquipmentViewSets(viewsets.ModelViewSet):
+    queryset = ImageEquipment.objects.all()
+    serializer_class = ImageEquipmentSerializer
+
+
+class ImageMaterialsViewSets(viewsets.ModelViewSet):
+    queryset = ImageMaterials.objects.all()
+    serializer_class = ImageMaterialsSerializer
+
 
