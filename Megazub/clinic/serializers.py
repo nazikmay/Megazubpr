@@ -109,6 +109,12 @@ class ClinicSerializer(serializers.ModelSerializer):
         model = Clinic
         fields = '__all__'
 
+class EquipmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Equipment
+        fields = '__all__'
+
+
 
 class CertificatesSerializer(serializers.ModelSerializer):
     class Meta:
@@ -128,10 +134,6 @@ class UsefulInfoSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class EquipmentSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Equipment
-        fields = '__all__'
 
 
 class ImageEquipmentSerializer(serializers.ModelSerializer):
@@ -145,15 +147,3 @@ class ImageMaterialsSerializer(serializers.ModelSerializer):
         model = ImageMaterials
         fields = '__all__'
 
-"""
-class ModelEquipmentSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = ModelEquipment
-        fields = '__all__'
-
-
-class EquipmentSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Equipment
-        fields = '__all__'
-"""

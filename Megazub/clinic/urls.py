@@ -1,8 +1,11 @@
 from django.urls import path, include, re_path
 from .views import *
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 urlpatterns = [
+    path('', include('nazik.as_view')),
+
 
     path('carousel_item/', CarouselItemViewSets.as_view({'get': 'list'}),
          name='carousel_item_list'),
@@ -81,6 +84,8 @@ urlpatterns = [
     path('materials_clinic/<int:pk>/',
          MaterialsClinicViewSets.as_view({'get': 'retrieve'}),
          name='materials_clinic_detail'),
+
+
     path('clinic/', ClinicViewSets.as_view({'get': 'list'}),
          name='clinic_list'),
     path('clinic/<int:pk>/', ClinicViewSets.as_view({'get': 'retrieve'}),
@@ -98,10 +103,6 @@ urlpatterns = [
          name='useful_info_list'),
     path('useful_info/<int:pk>/', UsefulInfoViewSets.as_view({'get': 'retrieve'}),
          name='useful_info_detail'),
-    path('equipment/', EquipmentViewSets.as_view({'get': 'list'}),
-         name='equipment_list'),
-    path('equipment/<int:pk>/', EquipmentViewSets.as_view({'get': 'retrieve'}),
-         name='equipment_detail'),
     path('image_equipment/', ImageEquipmentViewSets.as_view({'get': 'list'}),
          name='image_equipment_list'),
     path('image_equipment/<int:pk>/', ImageEquipmentViewSets.as_view({'get': 'retrieve'}),
@@ -111,26 +112,7 @@ urlpatterns = [
     path('image_materials/<int:pk>/', ImageMaterialsViewSets.as_view({'get': 'retrieve'}),
          name='image_materials_detail'),
 
-<<<<<<< HEAD
-    path('vacancy/', ReviewsViewSets.as_view({'get': 'list', 'post': 'create'}), name='vacancies_list'),
-    path('vacancy/<int:pk>/', ReviewsViewSets.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}),
-         name='vacancies_detail'),
-
-    path('appvacancies/', ReviewsViewSets.as_view({'get': 'list', 'post': 'create'}), name='appvacancies_list'),
-    path('appvacancies/<int:pk>/', ReviewsViewSets.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}),
-         name='appvacancies_detail'),
-
-    path('works/', ReviewsViewSets.as_view({'get': 'list', 'post': 'create'}), name='works_list'),
-    path('works/<int:pk>/', ReviewsViewSets.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}),
-         name='works_detail'),
-
-    path('specialitydoctors/', ReviewsViewSets.as_view({'get': 'list', 'post': 'create'}), name='specialitydoctors_list'),
-    path('specialitydoctors/<int:pk>/', ReviewsViewSets.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}),
-         name='specialitydoctors_detail'),
-
 
 
 ]
-=======
-]
->>>>>>> main
+

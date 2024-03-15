@@ -1,6 +1,7 @@
 from django.db import models
 
 
+
 class CarouselItem(models.Model):
     title = models.CharField(max_length=100)
     price = models.IntegerField(null=True)
@@ -162,29 +163,6 @@ class IndependentRatings(models.Model):
                                 verbose_name="Rating")
 
 
-<<<<<<< HEAD
-"""class ModelEquipment(models.Model):
-    Используем материалы  
-    title = models.CharField(max_length=50)
-    descriptions = models.TextField()
-
-    def __str__(self):
-        return self.title"""
-
-
-"""class Equipment(models.Model):
-    #Оборудование
-    title = models.CharField(max_length=100)
-    descriptions = models.TextField()
-    image = models.ImageField(upload_to='equipment_foto')
-    modelequipment = models.ForeignKey(ModelEquipment, on_delete=models.CASCADE, blank=True, null=True)
-
-    def __str__(self):
-        return self.title
-"""
-
-
-=======
 class MaterialsClinic(models.Model):
     """Материалы Клиники"""
     title = models.CharField(max_length=100)
@@ -193,7 +171,7 @@ class MaterialsClinic(models.Model):
 
 class ImageMaterials(models.Model):
     materials_clinic = models.ForeignKey(MaterialsClinic, on_delete=models.CASCADE)
-    image = models.ImageField()
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
 
 
 class Clinic(models.Model):
@@ -203,21 +181,13 @@ class Clinic(models.Model):
     image = models.ImageField(null=True)
 
 
-class Equipment(models.Model):
-    """Работаем на профессиональном оборудовании"""
-    title = models.CharField(max_length=100)
-    manufacturer = models.CharField(max_length=60)
-
-
-class ImageEquipment(models.Model):
-    equipment = models.ForeignKey(Equipment, on_delete=models.CASCADE)
-    image = models.ImageField()
 
 
 class Certificates(models.Model):
     """Сертификаты"""
+
     image = models.ImageField(null=True)
-    description = models.TextField()
+    title = models.CharField(max_length=100, null=True)
 
 
 class Requisites(models.Model):
@@ -247,6 +217,16 @@ class UsefulInfo(models.Model):
     title = models.CharField(max_length=120)
     description = models.TextField()
     doctors = models.ForeignKey(Doctors, on_delete=models.CASCADE)
->>>>>>> main
+
+
+class Equipment(models.Model):
+    """Работаем на профессиональном оборудовании"""
+    title = models.CharField(max_length=150)
+    manufacturer = models.CharField(max_length=60)
+
+
+class ImageEquipment(models.Model):
+    equipment = models.ForeignKey(Equipment, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
 
 
